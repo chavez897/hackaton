@@ -11,7 +11,9 @@ class CoursesModelSerializer(serializers.ModelSerializer):
             "description",
             "datetime",
             "instructor",
-            "location"
+            "location",
+            "picture",
+            "delivery_mode",
         )
 
 

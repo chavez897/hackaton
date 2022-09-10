@@ -1,8 +1,19 @@
 from django.db import models
 
+class DeliveryMode(models.TextChoices):
+    ONLINE = "O", "Online"
+    PERSON = "P", "Person"
+
 
 class Courses(models.Model):
 
+    picture = models.ImageField(  # noqa DJ01
+        verbose_name="Avatar",
+        upload_to="courses/picture/%Y/%m/%d/",
+        max_length=1000,
+        blank=True,
+        null=True,
+    )
     name = models.CharField(
         verbose_name="name",
         max_length=250
@@ -35,6 +46,15 @@ class Courses(models.Model):
         blank=True,
         null=True,
     )
+
+    delivery_mode = models.CharField(
+        verbose_name="Delivery Mode",
+        max_length=10,
+        choices=DeliveryMode.choices,
+        default=DeliveryMode.PERSON,
+    )
+
+
 
     class Meta:
         verbose_name = "course"
