@@ -10,12 +10,14 @@ from users.views.auth import (
     UserAuthNonAtomicViewSet,
     UserAuthViewSet,
 )
+from courses.views.courses import CoursesViewSet
 
 
 router = routers.DefaultRouter()
 router.register("auth", UserAuthViewSet, basename="auth")
 router.register("auth", UserAuthNonAtomicViewSet, basename="auth_not_atomic")
 router.register("users", UserViewSet)
+router.register("courses", CoursesViewSet, basename="courses")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "storages",
-    "users.apps.UsersConfig"
+    "users.apps.UsersConfig",
+    "courses.apps.CoursesConfig"
 ]
 
 MIGRATION_MODULES = {"sites": "contrib.sites.migrations"}
