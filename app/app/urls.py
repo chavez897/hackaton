@@ -13,6 +13,7 @@ from users.views.auth import (
 from courses.views.courses import CoursesViewSet
 from community.views.community import CommunityViewSet
 from community.views.posts import PostViewSet
+from courses.views.enrollments import EnrollmentsiewSet
 
 
 router = routers.DefaultRouter()
@@ -22,6 +23,7 @@ router.register("users", UserViewSet)
 router.register("courses", CoursesViewSet, basename="courses")
 router.register("community", CommunityViewSet, basename="community")
 router.register("posts", PostViewSet, basename="posts")
+router.register("enrollments", EnrollmentsiewSet, basename="enrollments")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
