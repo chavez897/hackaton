@@ -15,5 +15,3 @@ class CoursesModelSerializer(serializers.ModelSerializer):
             "picture",
             "delivery_mode",
         )
-
-
