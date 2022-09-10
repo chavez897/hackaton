@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "courses.apps.CoursesConfig",
     "community.apps.CommunityConfig",
+    "points.apps.PointsConfig"
 ]
 
 MIGRATION_MODULES = {"sites": "contrib.sites.migrations"}

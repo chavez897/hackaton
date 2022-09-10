@@ -14,7 +14,7 @@ from courses.views.courses import CoursesViewSet
 from community.views.community import CommunityViewSet
 from community.views.posts import PostViewSet
 from courses.views.enrollments import EnrollmentsiewSet
-
+from points.views.points import PointsViewSet
 
 router = routers.DefaultRouter()
 router.register("auth", UserAuthViewSet, basename="auth")
@@ -24,6 +24,7 @@ router.register("courses", CoursesViewSet, basename="courses")
 router.register("community", CommunityViewSet, basename="community")
 router.register("posts", PostViewSet, basename="posts")
 router.register("enrollments", EnrollmentsiewSet, basename="enrollments")
+router.register("points", PointsViewSet, basename="points")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
