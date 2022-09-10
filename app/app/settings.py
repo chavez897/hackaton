@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "storages",
     "users.apps.UsersConfig",
-    "courses.apps.CoursesConfig"
+    "courses.apps.CoursesConfig",
+    "community.apps.CommunityConfig",
 ]
 
 MIGRATION_MODULES = {"sites": "contrib.sites.migrations"}
@@ -237,7 +238,7 @@ REST_FRAMEWORK = {
 JWT_TOKEN_EXP_DAYS = 7
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": True,

@@ -11,6 +11,8 @@ from users.views.auth import (
     UserAuthViewSet,
 )
 from courses.views.courses import CoursesViewSet
+from community.views.community import CommunityViewSet
+from community.views.posts import PostViewSet
 
 
 router = routers.DefaultRouter()
@@ -18,6 +20,8 @@ router.register("auth", UserAuthViewSet, basename="auth")
 router.register("auth", UserAuthNonAtomicViewSet, basename="auth_not_atomic")
 router.register("users", UserViewSet)
 router.register("courses", CoursesViewSet, basename="courses")
+router.register("community", CommunityViewSet, basename="community")
+router.register("posts", PostViewSet, basename="posts")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
