@@ -5,8 +5,15 @@ class StudyArea(models.Model):
 
     name = models.CharField(
         verbose_name="Study Area",
-        unique=True,
         max_length=250
+    )
+
+    school = models.ForeignKey(
+        verbose_name="School",
+        on_delete=models.CASCADE,
+        to="users.Schools",
+        blank=True,
+        null=True,
     )
 
     class Meta:

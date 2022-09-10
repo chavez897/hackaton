@@ -36,6 +36,20 @@ class User(CustomAbstractUser):
         error_messages={"unique": "A user with that email already exists."},
     )
 
+    name = models.CharField(
+        verbose_name="name",
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+
+    last_name = models.CharField(
+        verbose_name="last name",
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+
     USERNAME_FIELD = "email"
 
     is_verified = models.BooleanField(

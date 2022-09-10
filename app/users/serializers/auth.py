@@ -11,7 +11,6 @@ from django.db import transaction
 from django.utils import timezone
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
-from users.models.academic_domains import AcademicDomains
 from users.models.study_area import StudyArea
 from users.models.roles import UserRole
 from users.models.schools import Schools
@@ -183,23 +182,6 @@ class UserSignUpSerializer(serializers.Serializer):
         
         if not UserRole.objects.filter(role=data["role"]).exists():
             raise serializers.ValidationError({"Error": "Invalid Role"})
-
-        if data["school"] is not None and not Schools.objects.filter(id=data["school"]).exists():
-            raise serializers.ValidationError({"Error": "Invalid School"})
-        
-        if data["study_area"] is not None and not StudyArea.objects.filter(id=data["study_area"]).exists():
-            raise serializers.ValidationError({"Error": "Invalid Study Area"})
-
-        if data["role"] in ["faculty member", "student"]:
-            if data["study_area"] is None:
-                raise serializers.ValidationError({"Error": "Invalid Study Area"})
-            if data["school"] is None:
-                raise serializers.ValidationError({"Error": "Invalid School"})
-            email_domain = data["email"].split("@")[1]
-            if not AcademicDomains.objects.filter(domain=email_domain):
-                raise serializers.ValidationError(
-                    {"email": "domain error"}
-                )
 
         # Password valid or raise exception
         password_validation.validate_password(password)
